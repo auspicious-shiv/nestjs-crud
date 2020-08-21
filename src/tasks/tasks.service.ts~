@@ -44,7 +44,7 @@ async  createTask(createTaskDto:CreateTaskDto,user:User) :Promise<Task>{
   async getTaskById(id:number,user:User):Promise<Task>{
       const found= await this.taskRepository.findOne({where:{id,userId:user.id}})
       if(!found){
-        throw new NotFoundException(`Task with id ${id} not found`);
+        throw new NotFoundException(`Task with id ${id} not found`)
       }
       return found
   }
